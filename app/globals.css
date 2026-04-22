@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui;
+  --font-display: "Epilogue", ui-sans-serif, system-ui;
+
+  --color-secondary: #d0bfee;
+  --color-surface-container-low: #1b1c1d;
+  --color-surface-tint: #bdd124;
+  --color-error: #ffb4ab;
+  --color-surface-container-highest: #343536;
+  --color-surface-container-lowest: #0d0e0f;
+  --color-on-tertiary-container: #837d72;
+  --color-on-secondary: #362a50;
+  --color-primary-fixed-dim: #bdd124;
+  --color-inverse-surface: #e3e2e3;
+  --color-on-secondary-container: #beaddc;
+  --color-tertiary-container: #15130b;
+  --color-surface: #121314;
+  --color-secondary-container: #4d4068;
+  --color-outline-variant: #44474a;
+  --color-surface-container-high: #292a2b;
+  --color-tertiary-fixed: #e9e2d4;
+  --color-secondary-fixed: #ebddff;
+  --color-on-surface-variant: #c5c6c9;
+  --color-background: #121314;
+  --color-on-error-container: #ffdad6;
+  --color-on-error: #690005;
+  --color-primary-fixed: #d9ee43;
+  --color-on-primary: #2d3400;
+  --color-inverse-on-surface: #303031;
+  --color-on-tertiary: #333027;
+  --color-tertiary-fixed-dim: #ccc6b9;
+  --color-outline: #8f9194;
+  --color-on-primary-container: #778500;
+  --color-primary: #bdd124;
+  --color-on-primary-fixed: #1a1e00;
+  --color-primary-container: #111500;
+  --color-surface-bright: #38393a;
+  --color-on-surface: #e3e2e3;
+  --color-on-background: #e3e2e3;
+  --color-surface-variant: #343536;
+  --color-surface-dim: #121314;
+  --color-inverse-primary: #596400;
+  --color-error-container: #93000a;
+  --color-on-tertiary-fixed-variant: #4a463d;
+  --color-tertiary: #ccc6b9;
+  --color-surface-container: #1f2021;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary;
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .neon-glow {
+    box-shadow: 0 0 15px rgba(189, 209, 36, 0.3);
+  }
+
+  .kinetic-glass {
+    @apply bg-surface/70 backdrop-blur-3xl border-b border-white/5;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-left {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
